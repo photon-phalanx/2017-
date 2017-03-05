@@ -1,0 +1,9 @@
+学到了蛮多的东西的
+大致思路是
+1.边框用2个元素分别控制左右边框和上下边框（当然伪元素应该会更好看），对2侧边框分别做一个展开过渡
+2.流光效果参考大神们的，利用一个首尾颜色相同的渐变，用background-size放大成2倍长度，然后用动画做background-position的移动
+重点还有一个是   background-clip: text;color:transparent
+在看大神们的指导前，还不知道有text这个属性，这个可以让背景只在text部分显示，如果text是透明的那就透出了背景
+3.模糊效果，知道了滤镜会把内容都模糊掉，所以要单独用一个层
+所以我用了before伪类来做background（after用于居中了），z-index:-1 使他在后面展现
+另外让我知道了伪类用width/height:100%填满似乎是不行的，所以用了top/left/bottom/right:0 来填满

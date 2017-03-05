@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        @keyframes font-effect {
+            from { background-position: 0 0; }
+            to { background-position: -100% 0; }
+        }
+
+        .wrapper {
+            position: relative;
+            width: 450px;
+            height: 285px;
+            background-size: cover;
+            padding: 20px;
+            box-sizing: border-box;
+            margin: auto;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .wrapper:before {
+            content: '.';
+            position: absolute;
+            left:0;
+            right:0;
+            top:0;
+            bottom:0;
+            background-image: url("background.jpg");
+            z-index: -1;
+        }
+
+        .wrapper:hover:before {
+            filter: blur(3px);
+            transition: all 3s;
+        }
+
+        .wrapper:after {
+            content: '.';
+            visibility: hidden;
+            display: inline-block;
+            line-height: 285px;
+        }
+
+        .wrapper>.border-lr {
+            position: absolute;
+            top: 50%;
+            left: 20px;
+            right: 20px;
+            border-color: transparent;
+        }
+
+        .wrapper:hover>.border-lr {
+            top: 20px;
+            bottom: 20px;
+            border-left: 3px solid #fff;
+            border-right: 3px solid #fff;
+            transition: all 3s ;
+        }
+
+        .wrapper>.border-tb {
+            position: absolute;
+            top: 20px;
+            bottom: 20px;
+            left: 50%;
+            border-color: transparent;
+        }
+
+        .wrapper:hover>.border-tb {
+            left: 20px;
+            right: 20px;
+            border-top: 3px solid #fff;
+            border-bottom: 3px solid #fff;
+            transition: all 3s ;
+        }
+
+        .wrapper>.text {
+            display: inline-block;
+            position: relative;
+            bottom: -30px;
+            font-size: 24px;
+            background-clip: text;
+            -webkit-background-clip: text;
+            background-size: 200% 100%;
+            opacity: 0;
+            color: transparent;
+        }
+
+        .wrapper:hover>.text {
+            bottom: 0;
+            background-image: linear-gradient(to right,yellow,green 25%,yellow 50%, green 75%,yellow 100%);
+            opacity: 1;
+            animation:font-effect 3s linear infinite;
+            transition: opacity 3s,bottom 1s;
+        }
+    </style>
+
+
+    <script>
+
+    </script>
+</head>
+<body>
+<div class="wrapper">
+    <div class="text">
+        <span>前端学院的第一个学习内容</span>
+        <br/>
+        <span>点击访问</span>
+    </div>
+        <div class="border-lr"></div>
+        <div class="border-tb"></div>
+</div>
+</body>
+</html>
