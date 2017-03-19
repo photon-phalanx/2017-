@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="reset.css"/>
+    <script src="main.js"></script>
+    <style>
+        @-webkit-keyframes rotate0 {
+            from {
+                -webkit-transform: rotateY(0deg) translateZ(300px);
+            }
+            to {
+                -webkit-transform: rotateY(60deg) translateZ(300px);
+            }
+        }
+
+        @-webkit-keyframes rotate1 {
+            from {
+                -webkit-transform: rotateY(60deg) translateZ(300px);
+            }
+            to {
+                -webkit-transform: rotateY(120deg) translateZ(300px);
+            }
+        }
+
+        @-webkit-keyframes rotate2 {
+            from {
+                -webkit-transform: rotateY(120deg) translateZ(300px);
+            }
+            to {
+                -webkit-transform: rotateY(180deg) translateZ(300px);
+            }
+        }
+
+        @-webkit-keyframes rotate3 {
+            from {
+                -webkit-transform: rotateY(180deg) translateZ(300px);
+            }
+            to {
+                -webkit-transform: rotateY(240deg) translateZ(300px);
+            }
+        }
+
+        @-webkit-keyframes rotate4 {
+            from {
+                -webkit-transform: rotateY(240deg) translateZ(300px);
+            }
+            to {
+                -webkit-transform: rotateY(300deg) translateZ(300px);
+            }
+        }
+
+        @-webkit-keyframes rotate5 {
+            from {
+                -webkit-transform: rotateY(300deg) translateZ(300px);
+            }
+            to {
+                -webkit-transform: rotateY(360deg) translateZ(300px);
+            }
+        }
+
+        .container {
+            width: 1000px;
+            margin: 50px auto;
+            position: relative;
+        }
+
+        .container .list {
+            perspective: 800px;
+            transform-style: preserve-3d;
+        }
+
+        .container .list li img {
+            width: 300px;
+            position: absolute;
+            left: 35%;
+            top: 100px;
+            display: block;
+            transform: translateZ(280px);
+        }
+
+        .container .list li:nth-child(1) img {
+            transform: rotateY(0deg) translateZ(300px);
+        }
+
+        .container .list li:nth-child(2) img {
+            transform: rotateY(60deg) translateZ(300px);
+        }
+
+        .container .list li:nth-child(3) img {
+            transform: rotateY(120deg) translateZ(300px);
+        }
+
+        .container .list li:nth-child(4) img {
+            transform: rotateY(180deg) translateZ(300px);
+        }
+
+        .container .list li:nth-child(5) img {
+            transform: rotateY(240deg) translateZ(300px);
+        }
+
+        .container .list li:nth-child(6) img {
+            transform: rotateY(300deg) translateZ(300px);
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <ul class="list">
+        <li><img src="img/1.jpg"/></li>
+        <li><img src="img/2.jpg"/></li>
+        <li><img src="img/3.jpg"/></li>
+        <li><img src="img/4.jpg"/></li>
+        <li><img src="img/5.jpg"/></li>
+        <li><img src="img/6.jpg"/></li>
+    </ul>
+</div>
+</body>
+</html>
