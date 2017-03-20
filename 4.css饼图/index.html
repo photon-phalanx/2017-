@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--这是很直接的写下来的，可以删掉动画中重复的一些部分
+外圈由border形成，圆为了方便裁开左右，也用border
+这就是一个左浅右深，左浅右透明，左深右透明的3个圆叠加而成的
+-->
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="../reset.css"/>
+    <style>
+        .container {
+            width: 300px;
+            height: 300px;
+            position: relative;
+            margin: 0 auto;
+            background-color: #ccc;
+        }
+
+        @keyframes rotate0 {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(-360deg);
+            }
+        }
+
+        .outer-circle {
+            position: absolute;
+            left: 80px;
+            top: 80px;
+            width: 140px;
+            height: 140px;
+            border: 2px solid #ddddff;
+            background-color: transparent;
+            border-radius: 50%;
+            border-top-color: transparent;
+            animation: rotate0 1s linear infinite;
+        }
+
+        @keyframes total {
+            0% {
+                transform: rotate(45deg);
+            }
+            25% {
+                transform: rotate(45deg);
+            }
+            25.01% {
+                transform: rotate(-135deg);
+            }
+            50% {
+                transform: rotate(-135deg);
+            }
+            50.001% {
+                transform: rotate(-135deg);
+            }
+            75% {
+                transform: rotate(-135deg);
+            }
+            75.001% {
+                transform: rotate(45deg);
+            }
+            100% {
+                transform: rotate(45deg);
+
+            }
+        }
+
+        .circle {
+            position: absolute;
+            left: 100px;
+            top: 100px;
+            border-radius: 50%;
+            border: 50px solid pink;
+            border-right-color: deeppink;
+            border-top-color: deeppink;
+            transform: rotate(45deg);
+            animation: total 2s linear infinite;
+            z-index: 1;
+        }
+
+        .half-circle-left, .half-circle-right {
+            position: absolute;
+            left: 100px;
+            top: 100px;
+            transform: rotate(45deg);
+            width: 0;
+            height: 0;
+            border: 50px solid transparent;
+            border-radius: 50%;
+        }
+
+        @keyframes showLeft {
+            0% {
+                transform: rotate(45deg);
+                z-index: 5;
+            }
+            25% {
+                transform: rotate(-135deg);
+                z-index: 5;
+            }
+            25.001% {
+                transform: rotate(-135deg);
+                z-index: 6;
+            }
+            50% {
+                transform: rotate(-315deg);
+                z-index: 6;
+            }
+            50.001% {
+                transform: rotate(-315deg);
+                z-index: 6;
+            }
+            75% {
+                transform: rotate(-315deg);
+                z-index: 6;
+            }
+            75.001% {
+                transform: rotate(45deg);
+                z-index: 0;
+            }
+            100% {
+                transform: rotate(45deg);
+                z-index: 0;
+            }
+        }
+
+        .half-circle-left {
+            border-right-color: deeppink;
+            border-top-color: deeppink;
+            z-index: 0;
+            animation: showLeft 2s linear infinite;
+        }
+
+        @keyframes showRight {
+            0% {
+                transform: rotate(45deg);
+                z-index: 6;
+            }
+            25% {
+                transform: rotate(45deg);
+                z-index: 6;
+            }
+            25.01% {
+                transform: rotate(45deg);
+                z-index: 0;
+            }
+            50% {
+                transform: rotate(45deg);
+                z-index: 0;
+            }
+            50.001% {
+                transform: rotate(45deg);
+                z-index: 5;
+            }
+            75% {
+                transform: rotate(-135deg);
+                z-index: 5;
+            }
+            75.001% {
+                transform: rotate(-135deg);
+                z-index: 6;
+            }
+            100% {
+                transform: rotate(-315deg);
+                z-index: 6;
+            }
+        }
+
+        .half-circle-right {
+            border-right-color: pink;
+            border-top-color: pink;
+            z-index: 6;
+            animation: showRight 2s linear infinite;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="circle"></div>
+    <div class="half-circle-left"></div>
+    <div class="half-circle-right"></div>
+    <div class="outer-circle"></div>
+</div>
+</body>
+</html>
